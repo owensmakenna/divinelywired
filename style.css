@@ -145,10 +145,129 @@ body {
   opacity: 0.8;
 }
 
-/* Footer */
+.quote-section {
+  text-align: center;
+  margin: 60px 20px 40px;
+}
+
+#dynamic-quote {
+  font-family: 'Dancing Script', cursive; /* cursive like Divinely Wired */
+  font-size: 2rem;
+  color: #556b2f;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s ease forwards; /* different animation from typing */
+  letter-spacing: 0.5px;
+}
+
+/* Slide up fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.quote-section {
+  text-align: center;
+  margin: 20px 20px 10px; /* top, sides, bottom */
+}
+
+.footer-signature-container {
+  text-align: center;
+  margin: 10px 0 20px; /* reduce top margin */
+}
+
 footer {
   text-align: center;
-  padding: 60px 20px;
+  padding: 20px 20px 40px; /* smaller padding */
   font-size: 0.8rem;
   opacity: 0.6;
 }
+
+/* Lightbox overlay */
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* enable scrolling if needed */
+  background-color: rgba(0,0,0,0.9); /* dark semi-transparent background */
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border: 5px solid #556b2f;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  animation: fadeIn 0.3s;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #bbb;
+}
+
+/* Fade-in animation for the image */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.frame img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+}
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Show class triggers fade-in */
+.lightbox.show {
+  display: block;
+  opacity: 1;
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border: 5px solid #556b2f;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+  object-fit: contain; /* ensures proper aspect ratio */
+}
+
+
