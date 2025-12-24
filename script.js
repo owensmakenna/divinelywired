@@ -1,15 +1,19 @@
 const gallery = document.getElementById('gallery');
 const artFolder = 'art/';
 
-// Add all your image filenames in the 'art/' folder
-const images = [
-  'art1.JPG','art2.jpg','art3.jpg','art4.jpg',
-  'art5.jpg','art6.jpg','art7.jpg','art8.jpg',
-  'art9.jpg','art10.jpg','art11.jpg','art12.jpg',
-  'art13.jpg','art14.jpg','art15.jpg','art16.jpg'
+// List all 36 images
+let images = [
+  'art1.jpg','art2.jpg','art3.jpg','art4.jpg','art5.jpg','art6.jpg','art7.jpg','art8.jpg',
+  'art9.jpg','art10.jpg','art11.jpg','art12.jpg','art13.jpg','art14.jpg','art15.jpg','art16.jpg',
+  'art17.jpg','art18.jpg','art19.jpg','art20.jpg','art21.jpg','art22.jpg','art23.jpg','art24.jpg',
+  'art25.jpg','art26.jpg','art27.jpg','art28.jpg','art29.jpg','art30.jpg','art31.jpg','art32.jpg',
+  'art33.jpg','art34.jpg','art35.jpg','art36.jpg'
 ];
 
-// Shuffle images for random order
+// 1️⃣ Normalize all filenames to lowercase to prevent case issues
+images = images.map(img => img.toLowerCase());
+
+// 2️⃣ Shuffle images
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -18,7 +22,7 @@ function shuffleArray(array) {
 }
 shuffleArray(images);
 
-// Dynamically generate rows based on total images
+// 3️⃣ Dynamically generate rows
 let currentIndex = 0;
 const maxImagesPerRow = 4;
 const minImagesPerRow = 2;
@@ -48,7 +52,7 @@ while (currentIndex < images.length) {
   gallery.appendChild(row);
 }
 
-// Scroll reveal animation
+// 4️⃣ Scroll reveal animation
 const frames = document.querySelectorAll('.frame');
 
 const observer = new IntersectionObserver(entries => {
@@ -61,7 +65,7 @@ const observer = new IntersectionObserver(entries => {
 
 frames.forEach(frame => observer.observe(frame));
 
-// Typing effect for subtitle
+// 5️⃣ Typing effect for subtitle
 const subtitle = document.getElementById('subtitle');
 const text = subtitle.textContent;
 subtitle.textContent = '';
@@ -72,6 +76,9 @@ function type() {
     subtitle.textContent += text.charAt(index);
     index++;
     setTimeout(type, 120);
+  } else {
+    // Remove cursor line after typing finishes
+    subtitle.style.borderRight = 'none';
   }
 }
 
