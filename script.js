@@ -3,15 +3,12 @@ const artFolder = 'art/';
 
 // List all 36 images
 let images = [
-  'art1.jpg','art2.jpg','art3.jpg','art4.png','art5.jpg','art6.jpg','art7.jpg','art8.jpg',
+  'art1.jpg','art2.jpg','art3.jpg','art4.jpg','art5.jpg','art6.jpg','art7.jpg','art8.jpg',
   'art9.jpg','art10.jpg','art11.jpg','art12.jpg','art13.jpg','art14.jpg','art15.jpg','art16.jpg',
   'art17.jpg','art18.jpg','art19.jpg','art20.jpg','art21.JPG','art22.jpg','art23.jpg','art24.jpg',
   'art25.jpg','art26.jpg','art27.jpg','art28.jpg','art29.jpg','art30.jpg','art31.jpg','art32.jpg',
   'art33.jpg','art34.jpg','art35.jpg','art36.jpg'
 ];
-
-// 1️⃣ Normalize all filenames to lowercase to prevent case issues
-images = images.map(img => img.toLowerCase());
 
 // 2️⃣ Shuffle images
 function shuffleArray(array) {
